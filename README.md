@@ -1,4 +1,5 @@
 # conda connector
+conda Enables you to move freely around the environment.
 
 ## Prerequisite
 ### Install Dependencies
