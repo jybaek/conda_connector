@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#------------------------------------------------------
+# Precondition
+#------------------------------------------------------
+# $ sudo apt-get install dialog
+# $ alias .conda='source ~/bin/connect_conda'
+#------------------------------------------------------
+# Usage
+#------------------------------------------------------
+# $ .conda
+#------------------------------------------------------
+
+ENVS=($(conda info --envs | grep -v '^#' | awk '{print $1}'))
+ENVS+=("deactivate")
+
+result=$(dialog --menu "Choose virtualenv:" \
+		30 50 20 \
+		$(for ((i = 0; i < ${#ENVS[@]}; i++));do echo "$i ${ENVS[$i]} ";done) \
+		3>&2 2>&1 1>&3)
+
+for ((i = 0; i < ${#ENVS[@]}; i++));do
+	if [ "$result" == $i ];then
+    if [ ${ENVS[$i]} = "deactivate" ];then
+      source deactivate
+    else
+      source activate ${ENVS[$i]}
+    fi
+	fi
+done
