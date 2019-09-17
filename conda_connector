@@ -21,9 +21,9 @@ result=$(dialog --menu "Choose virtualenv:" \
 for ((i = 0; i < ${#ENVS[@]}; i++));do
 	if [ "$result" == $i ];then
     if [ ${ENVS[$i]} = "deactivate" ];then
-      source deactivate
+      conda deactivate
     else
-      source activate ${ENVS[$i]}
+      conda activate ${ENVS[$i]}
     fi
 	fi
 done
