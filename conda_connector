@@ -13,7 +13,7 @@
 ENVS=($(conda info --envs | grep -v '^#' | awk '{print $1}'))
 ENVS+=("deactivate")
 
-result=$(dialog --menu "Choose virtualenv:" \
+result=$(dialog --menu "Choose conda env" \
 		30 50 20 \
 		$(for ((i = 0; i < ${#ENVS[@]}; i++));do echo "$i ${ENVS[$i]} ";done) \
 		3>&2 2>&1 1>&3)
