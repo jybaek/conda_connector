@@ -3,8 +3,14 @@ conda Enables you to move freely around the environment.
 
 ## Prerequisite
 ### Install Dependencies
+Install dialog on Linux
 ```bash
 $ sudo apt-get install dialog
+```
+
+Install dialog on Mac with brew
+```bash
+brew install dialog
 ```
 
 ## Usage
