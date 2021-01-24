@@ -10,7 +10,7 @@ $ sudo apt-get install dialog
 
 Install dialog on Mac with brew
 ```bash
-brew install dialog
+$ brew install dialog
 ```
 
 ## Usage
